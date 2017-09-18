@@ -23,10 +23,10 @@ npm init -y
 ## 安装依赖的模块
 ###　生产依赖
 ```
-
+npm install react jquery bootstrap redux react-redux react-router react-redux-router@next -S
 ```
 ### 开发依赖
 ```
-
+npm install babel-core babel-loader babel-preset-es2015 babel-preset-stage-0 babel-preset-react less less-loader css-loader style-loader file-loader url-loader webpack webpack-dev-server html-webpack-plugin -D
 ```
 　
