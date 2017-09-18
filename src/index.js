@@ -1,1 +1,1 @@
-import './includes/2.jsx'
+import './includes/3.component'
