@@ -1,4 +1,8 @@
 class LikeButton {
+  constructor(){
+    //定义一个状态
+    this.state = {liked:false};
+  }
   //传入一个模板字符串，返回一个DOM对象
   createDOMFromString(domStr){
     let div = document.createElement('div');
@@ -6,8 +10,11 @@ class LikeButton {
     //返回第一个子元素,因为只可能有一个元素，所以这样写是可以的
     return div.children[0];//<button/>
   }
-  handleClick(){
-     alert(1);
+  handleClick(event){
+    console.log(this);
+    let likeText = document.querySelector('#like-text');
+    this.state.liked  = !this.state.liked;
+    likeText.innerHTML = this.state.liked?'取消':'点赞';
   }
   //render方法的返回值决定了此组件长什么样子
   render(){
@@ -19,7 +26,7 @@ class LikeButton {
          <span id="like-text">点赞</span>
        </button>
       `);
-    this.ele.addEventListener('click',this.handleClick);
+    this.ele.addEventListener('click',this.handleClick.bind(this));
     return this.ele;
   }
 }
