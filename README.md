@@ -23,7 +23,7 @@ npm init -y
 ## 安装依赖的模块
 ###　生产依赖
 ```
-npm install react jquery bootstrap redux react-redux react-router react-redux-router@next -S
+npm install react jquery bootstrap redux react-redux react-router react-router-redux@next -S
 ```
 ### 开发依赖
 ```

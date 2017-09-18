@@ -1,4 +1,5 @@
 let path = require('path');
+let HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   //入口文件
   entry:'./src/index.js',
@@ -9,6 +10,8 @@ module.exports = {
     //打包后的文件名
     filename:'bundle.js',
   },
+  //在浏览器建立打包前和打包后源代码的映射关系，
+  devtool: "cheap-module-source-map",
   //配置模块
   module:{
    rules:[
@@ -18,6 +21,11 @@ module.exports = {
        exclude:/node_modules/ //不需要解析node_modules下的文件
      }
    ]
-  }
+  },
+  plugins:[
+    new HtmlWebpackPlugin({
+      template:'./index.html'
+    })
+  ]
 
 }
