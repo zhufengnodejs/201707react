@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训 www.zhufengpeixun.cn</title>
+</head>
+<body>
+<div class="wrapper">
+    <button id="like-button">
+        <span id="like-text">赞+1</span>
+    </button>
+</div>
+<script type="text/javascript">
+  let liked = false;//表示是否已经点赞的状态
+  let likeBtn = document.querySelector('#like-button');
+  let likeText = document.querySelector('#like-text');
+  likeBtn.addEventListener('click',function(){
+    liked = !liked;
+    likeText.innerHTML = liked?'取消':'点赞';
+  })
+</script>
+</body>
+</html>
