@@ -5,11 +5,22 @@ let users = [
   {id:2,name:'周静',age:9},
   {id:3,name:'何静',age:10}
 ]
+class User extends Component{
+  render(){
+    return (
+      <tr>
+        <td>{this.props.id}</td>
+        <td>{this.props.name}</td>
+        <td>{this.props.age}</td>
+      </tr>
+    )
+  }
+}
 //状态越少越好
 class UserList extends Component{
   render(){
     return (
-      <table>
+      <table style={{border:'1px solid black'}}>
         <thead>
          <tr>
            <th>ID</th>
@@ -19,7 +30,9 @@ class UserList extends Component{
         </thead>
         <tbody>
         {
-
+          this.props.users.map((item,index)=>
+              <User {...item} key={index}/>
+          )
         }
         </tbody>
       </table>
