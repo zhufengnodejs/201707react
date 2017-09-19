@@ -1,8 +1,10 @@
 import React,{Component} from 'react';
+//受控组件 控件的值有value, 一般来说是这些组件的值受状态控制
+//非受控组件 控件的值没有value
 export default class MessageForm extends Component{
   constructor(){
     super();
-    this.state = {author:'',content:''};
+    this.state = {author:'',content:''};//受控组件
   }
   handleSubmit = (event)=>{
     event.preventDefault();//一定要阻止默认提交事件，否则会刷新页面
@@ -15,7 +17,7 @@ export default class MessageForm extends Component{
       <form onSubmit={this.handleSubmit}>
         <div className="form-group">
           <label className="control-label">姓名</label>
-          <input onChange={event=>this.setState({author:event.target.value})} required type="text" className="form-control"/>
+          <input  onChange={event=>this.setState({author:event.target.value})}  required type="text" className="form-control"/>
         </div>
         <div className="form-group">
           <label className="control-label">内容</label>

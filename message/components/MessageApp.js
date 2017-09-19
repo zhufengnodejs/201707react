@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import MessageForm from "./MessageForm";
 import MessageList from "./MessageList";
+import './index.css'
 export default class MessageApp extends Component{
   constructor(){
     super();
@@ -13,6 +14,11 @@ export default class MessageApp extends Component{
       messages:[...this.state.messages,message]
     });
   }
+  //定义一个删除消息的方法
+  delMessage = (id)=>{
+    let messages = this.state.messages.filter(item=>item.id != id);
+    this.setState({messages})
+  }
   render(){
     return (
       <div className="container" style={{marginTop:'20px'}}>
@@ -23,7 +29,7 @@ export default class MessageApp extends Component{
                 <h4 className="text-center">欢迎光临珠峰留言板</h4>
               </div>
               <div className="panel-body">
-                <MessageList messages={this.state.messages}/>
+                <MessageList delMessage={this.delMessage} messages={this.state.messages}/>
               </div>
               <div className="panel-footer">
                 <MessageForm addMessage={this.addMessage}/>
