@@ -10,7 +10,7 @@ module.exports = {
     //打包后的文件名
     filename:'bundle.js',
   },
-  //在浏览器建立打包前和打包后源代码的映射关系，
+  //在浏览器建立打包前和打包后源代码的映射关系，之后报错的时候就可以提示源代码行数了，否则只会提示打包后的文件行数bundle.js
   devtool: "cheap-module-source-map",
   //配置模块
   module:{

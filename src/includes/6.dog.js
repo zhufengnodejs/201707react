@@ -3,6 +3,9 @@
  */
 import React from 'react';
 import ReactDOM from 'react-dom';
+function bb(){
+  alert('b');
+}
 class Dog extends React.Component {
   constructor () {
     super()
@@ -23,7 +26,7 @@ class Dog extends React.Component {
     },Math.random()*30+2000);
   }
   render () {
-    return (<div onClick={this.handleClick}>
+    return (<div onClick={bb}>
       <p>{this.state.isRunning?'疯狂的奔跑中':'静静的卧着'}</p>
       <p>{this.state.isBarking?'狂吠中':'静静的'}</p>
     </div>)
