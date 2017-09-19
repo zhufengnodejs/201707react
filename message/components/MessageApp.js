@@ -4,10 +4,14 @@ import MessageList from "./MessageList";
 export default class MessageApp extends Component{
   constructor(){
     super();
-    this.state = {messages:[
-      {id:1,content:'今天天气真好!',author:'张三',createAt:new Date()},
-      {id:2,content:'是的，对的!',author:'李四',createAt:new Date()}
-    ]};
+    this.state = {messages:[]};
+  }
+  addMessage = (message)=>{
+    message.id = Date.now();
+    message.createAt = new Date();
+    this.setState({
+      messages:[...this.state.messages,message]
+    });
   }
   render(){
     return (
@@ -22,7 +26,7 @@ export default class MessageApp extends Component{
                 <MessageList messages={this.state.messages}/>
               </div>
               <div className="panel-footer">
-                <MessageForm/>
+                <MessageForm addMessage={this.addMessage}/>
               </div>
             </div>
           </div>
