@@ -1,1 +1,1 @@
-import './includes/9.map'
+import './includes/10.lessons'

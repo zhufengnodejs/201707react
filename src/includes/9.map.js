@@ -30,8 +30,8 @@ class UserList extends Component{
         </thead>
         <tbody>
         {
-          this.props.users.map((item,index)=>
-              <User {...item} key={index}/>
+          this.props.users.map((item,index)=>(
+              <User {...item} key={index}/>)
           )
         }
         </tbody>
