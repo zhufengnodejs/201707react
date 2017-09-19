@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训 www.zhufengpeixun.cn</title>
+    <style>
+        .box{
+            width:100px;
+            height: 100px;
+            background: red;
+            position: absolute;
+            top:30px;
+            left:0;
+        }
+    </style>
+</head>
+<body>
+<div class="box"></div>
+<button id="btn">动画</button>
+<script src="jquery.min.js"></script>
+<script src="velocity.min.js"></script>
+<script>
+$(function(){
+  $('#btn').click(function(){
+    $('.box').velocity({ width:600,height:500,top:300,left:300},{
+      duration:400,
+      easing:'swing',
+      begin:function(){
+        console.log('start');
+      }
+    });
+  })
+});
+</script>
+</body>
+</html>
