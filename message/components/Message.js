@@ -12,7 +12,7 @@ export default class Message extends Component{
   getContent = ()=>{
     let content = this.props.item.content;
     // I like `js` very much .  =>   `js` <code>js</code>
-    let filteredContent = content.replace(/`([\s\S]+)`/,'<code>$1</code>');
+    let filteredContent = content.replace(/`([\s\S]+?)`/g,'<code>$1</code>');
     this.setState({filteredContent});
   }
   getTime = ()=>{
@@ -28,7 +28,7 @@ export default class Message extends Component{
   }
   render(){
     return (
-      <li key={this.props.item.id} className="list-group-item">{this.props.item.author}:{this.state.filteredContent}
+      <li key={this.props.item.id} className="list-group-item">{this.props.item.author}:<span dangerouslySetInnerHTML={{__html:this.state.filteredContent}}></span>
         <button onClick={()=>this.props.delMessage(this.props.item.id)} className="btn btn-danger btn-xs">删除</button>
         <span className="pull-right">{this.state.time}</span></li>
     )
