@@ -4,14 +4,27 @@
  **/
 import React,{Component} from 'react';
 import ReactDOM from 'react-dom';
-function Input(){
-  return <input/>
+function local(Comp,key){ //
+   class Proxy extends Component{
+     render(){
+       return <Comp/>
+     }
+   }
+   return Proxy;
 }
+function Input(){
+  return <input/>;//username
+}
+function Textarea(){
+  return <textarea></textarea>;//content
+}
+let LocalInput =  local(Input,'username');
 class Form extends Component{
   render(){
     return (
       <form>
-        用户名 <Input/>
+        用户名:<LocalInput/>
+        内容:<Textarea/>
       </form>
     )
   }
