@@ -6,25 +6,41 @@ import React,{Component} from 'react';
 import ReactDOM from 'react-dom';
 function local(Comp,key){ //
    class Proxy extends Component{
+     constructor(){
+       super();
+       this.state = {data:''}
+     }
+     componentWillMount(){
+      let data =  localStorage.getItem(key);
+      this.setState({data});
+     }
+     handler = (event)=>{
+       let data = event.target.value;
+       localStorage.setItem(key,data);
+     }
      render(){
-       return <Comp/>
+       return <Comp handler={this.handler} data={this.state.data}/>
      }
    }
    return Proxy;
 }
-function Input(){
-  return <input/>;//username
+//value赋值之后此组件称为受控组件
+//defaultValue赋值后还可以随便改，不受控制
+function Input(props){
+  return <input defaultValue={props.data} onBlur={props.handler}/>;//username
 }
-function Textarea(){
-  return <textarea></textarea>;//content
+function Textarea(props){
+  return <textarea defaultValue={props.data}  onBlur={props.handler}></textarea>;//content
 }
+
 let LocalInput =  local(Input,'username');
+let LocalTextarea =  local(Textarea,'content');
 class Form extends Component{
   render(){
     return (
       <form>
         用户名:<LocalInput/>
-        内容:<Textarea/>
+        内容:<LocalTextarea/>
       </form>
     )
   }
