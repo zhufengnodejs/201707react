@@ -26,6 +26,10 @@ export default class Message extends Component{
     }
     this.setState({time});
   }
+  //组件将要卸载
+  componentWillUnmount(){
+   clearInterval(this.timer);
+  }
   render(){
     return (
       <li key={this.props.item.id} className="list-group-item">{this.props.item.author}:<span dangerouslySetInnerHTML={{__html:this.state.filteredContent}}></span>
