@@ -19,7 +19,7 @@ export default class MessageForm extends Component{
     localStorage.setItem('username',username);
   }
   componentWillMount(){
-    let author = localStorage.getItem('username');
+    let author = localStorage.getItem('username')||'';
     this.setState({author});
   }
   render(){

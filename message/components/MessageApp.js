@@ -10,14 +10,19 @@ export default class MessageApp extends Component{
   addMessage = (message)=>{
     message.id = Date.now();
     message.createAt = new Date();
-    this.setState({
-      messages:[...this.state.messages,message]
-    });
+    let messages = [...this.state.messages,message];
+    localStorage.setItem('messages',JSON.stringify(messages));
+    this.setState({messages});
   }
   //定义一个删除消息的方法
   delMessage = (id)=>{
     let messages = this.state.messages.filter(item=>item.id != id);
     this.setState({messages})
+  }
+  componentWillMount(){
+    let messages = localStorage.getItem('messages')||'[]';
+    messages = JSON.parse(messages);
+    this.setState({messages});
   }
   render(){
     return (
