@@ -1,0 +1,11 @@
+li.list-group-item button.btn-danger{
+    display:none;
+}
+li.list-group-item:hover button.btn-danger{
+    display:inline-block;
+}
+
+code{
+    border:1px solid #CCC;
+    background-color: #EEE;
+}
