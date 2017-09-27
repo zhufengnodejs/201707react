@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
-import store from '../store';
 import * as types from '../store/action-types';
-import {connect} from 'react-redux';
+import {connect} from '../react-redux';
 //输入就是读取store中的状态 输出就是把组件内的事件发射出去
 class Counter extends Component {
   render(){
