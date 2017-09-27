@@ -19,15 +19,23 @@ function createStore(){
     }
   }
   let getState = ()=>JSON.parse(JSON.stringify(appState));
+  let listeners = [];
+  //订阅
+  let subscribe = listener=>{
+    listeners.push(listener);//把所有的监听函数全部保存起来
+  }
   let dispatch = (action)=>{
     switch(action.type){
       case CHANGE_FONT_SIZE:
         appState.fontSize = action.fontSize;
-      default:
-        return;
     }
+    //当状态发生改变的时候，依次调用监听函数
+    listeners.forEach(listener=>{
+      console.log(appState);
+      listener();
+    });
   }
-  return {getState,dispatch}
+  return {getState,dispatch,subscribe}
 }
 let store = createStore();
 function renderTitle(){
@@ -46,5 +54,9 @@ function renderApp(){
   renderTitle();
   renderContent();
 }
-store.dispatch({type:CHANGE_FONT_SIZE,fontSize:'50px'})
 renderApp();
+store.subscribe(renderApp);
+setTimeout(function(){
+  store.dispatch({type:CHANGE_FONT_SIZE,fontSize:'50px'});
+},3000);
+
