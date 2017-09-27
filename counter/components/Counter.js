@@ -9,14 +9,16 @@ export default class Counter extends Component {
     })
   }
   componentWillUnmount(){
-    //this.unsubscribe();
+    this.unsubscribe();
   }
+
   render() {
     return (
       <div style={{border:'1px solid red',marginTop:'10px'}}>
         <p>{store.getState().number}</p>
         <button onClick={()=>store.dispatch({type:types.ADD})}>+</button>
         <button  onClick={()=>store.dispatch({type:types.MINUS})}>-</button>
+
       </div>
     )
   }
