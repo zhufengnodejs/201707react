@@ -1,11 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 class Provider extends React.Component {
  static childContextTypes = {
-   store:React.PropTypes.object
+   store:PropTypes.object
  }
  getChildContext(){
    return {
      store:this.props.store
+     //在子组件里可以this.context 得到{store:store}
    }
  }
  render(){
@@ -34,7 +36,7 @@ let connect = (mapStateToProps,mapDispatchToProps)=>(__component)=>{
        this.unsubscribe();
      }
      static contextTypes= {
-       store:React.PropTypes.object
+       store:PropTypes.object
      }
 
      render(){
