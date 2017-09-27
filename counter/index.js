@@ -1,11 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Counter from "./components/Counter";
-let killMySelf = ()=>{
-  ReactDOM.unmountComponentAtNode(document.querySelector('#root'));
-}
-ReactDOM.render(<div>
-  <Counter/>
-  <Counter/>
-  <button onClick={killMySelf}>自杀</button>
-</div>,document.querySelector('#root'));
+import store from './store';
+import {Provider} from 'react-redux';
+ReactDOM.render(
+  <Provider store={store}>
+     <Counter/>
+  </Provider>
+  ,document.querySelector('#root'));
