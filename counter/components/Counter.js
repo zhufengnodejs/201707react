@@ -1,25 +1,24 @@
 import React, {Component} from 'react';
 import store from '../store';
 import * as types from '../store/action-types';
-export default class Counter extends Component {
-  componentWillMount(){
-    //this.unsubscribe是一个函数，调用它的话可以取消订阅
-    this.unsubscribe = store.subscribe(()=>{
-      this.setState({});
-    })
-  }
-  componentWillUnmount(){
-    this.unsubscribe();
-  }
-
-  render() {
+import {connect} from 'react-redux';
+//输入就是读取store中的状态 输出就是把组件内的事件发射出去
+class Counter extends Component {
+  render(){
     return (
-      <div style={{border:'1px solid red',marginTop:'10px'}}>
-        <p>{store.getState().number}</p>
-        <button onClick={()=>store.dispatch({type:types.ADD})}>+</button>
-        <button  onClick={()=>store.dispatch({type:types.MINUS})}>-</button>
-
+      <div>
+        <p>{this.props.number}</p>
+        <button onClick={this.props.add}>+</button>
+        <button onClick={this.props.minus}>-</button>
       </div>
     )
   }
 }
+//state是仓库中的状态对象
+let mapStateToProps = state=>({...state});//{number:0}
+//dispatch是仓库中的dispatch方法
+let mapDispatchToProps = (dispatch)=>({
+  add:()=>dispatch({type:types.ADD}),
+  minus:()=>dispatch({type:types.MINUS})
+})
+export default connect(mapStateToProps,mapDispatchToProps)(Counter);
