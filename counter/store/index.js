@@ -15,4 +15,5 @@ let reducer = (state=initState,action)=>{
   }
 }
 let store = createStore(reducer);
+window.__store = store;
 export default store;
