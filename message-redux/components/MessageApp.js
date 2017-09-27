@@ -4,6 +4,7 @@ import MessageList from "./MessageList";
 import './index.css';
 import {connect} from 'react-redux';
 import * as types from '../store/action-types';
+import actions from '../store/actions';
 //UI组件  木偶组件 傻瓜组件
 //容器组件 聪明组件
 class MessageApp extends Component{
@@ -17,9 +18,7 @@ class MessageApp extends Component{
   }
   //定义一个删除消息的方法
   delMessage = (id)=>{
-    let messages = this.state.messages.filter(item=>item.id != id);
-    localStorage.setItem('messages',JSON.stringify(messages));
-    this.setState({messages})
+    this.props.delMessage(id);
   }
 
   render(){
@@ -45,7 +44,9 @@ class MessageApp extends Component{
   }
 }
 let mapStateToProps = state => state;
-let mapDispatchToProps = dispatch=>({
-  addMessage:(message)=>dispatch({type:types.ADD_MESSAGE,message})
-})
-export default connect(mapStateToProps,mapDispatchToProps)(MessageApp);
+//action creator action的创建者
+/*let mapDispatchToProps = dispatch=>({
+  addMessage:(message)=>dispatch({type:types.ADD_MESSAGE,message}),
+  delMessage:(id)=>dispatch({type:types.DEL_MESSAGE,id})
+})*/
+export default connect(mapStateToProps,actions)(MessageApp);
