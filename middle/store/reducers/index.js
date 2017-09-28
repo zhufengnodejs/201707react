@@ -13,6 +13,7 @@ import userStatus from './userStatus';
   }
  *
  */
+// Actions must be plain objects. Use custom middleware for async actions.
 let reducer = combineReducers({
   users,
   userStatus
