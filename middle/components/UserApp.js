@@ -11,9 +11,9 @@ class UserApp extends Component {
         <h3>{this.props.userStatus.status}</h3>
         <ul>
           {
-            this.props.users.list.map((item,index)=>{
+            this.props.users.list.map((item,index)=>(
               <li key={item.id}>{item.name}</li>
-            })
+            ))
           }
         </ul>
       </div>

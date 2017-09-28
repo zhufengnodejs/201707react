@@ -1,6 +1,7 @@
 let express = require('express');
 let app = express();
 app.get('/users', function (req, res) {
+  res.header('Access-Control-Allow-Origin','*');
   setTimeout(function(){
     res.send([
       {id: 1, name: 'zfpx1'},
