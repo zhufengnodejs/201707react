@@ -2,10 +2,12 @@ import React, {Component} from 'react';
 //Router 容器，它是用来包裹路由规则的
 //Route 是路由规则
 //BrowserRouter as Router, HTML5  history api
-import {HashRouter as Router, Route,Link,NavLink} from 'react-router-dom';
+import {HashRouter as Router, Route,Link,NavLink,Switch} from 'react-router-dom';
 import Home from "./Home";
 import User from "./User";
 import Profile from "./Profile";
+import Protected from './Protected';
+import Login from "./Login";
 export default class App extends Component {
   render() {
     let activeStyle = {color:'red'};
@@ -26,9 +28,12 @@ export default class App extends Component {
           </nav>
           <div className="row">
             <div className="col-sm-12">
-              <Route exact path="/" component={Home}/>
-              <Route path="/user" component={User}/>
-              <Route path="/profile" component={Profile}/>
+              <Switch>
+               <Route exact  path="/" component={Home}/>
+               <Route path="/user" component={User}/>
+               <Protected path="/profile" component={Profile}/>
+               <Route path="/login" component={Login}/>
+              </Switch>
             </div>
           </div>
         </div>
