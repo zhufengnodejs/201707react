@@ -18,7 +18,7 @@ class UsersList extends Component {
       <div>
         <div className='add-user'>
           <div>Username: <input ref="username" type='text'/></div>
-          <div>Age: <input type='number'/></div>
+          <div>Age: <input ref="age" type='number'/></div>
           <div>Gender:
             <label>Male: <input ref="male" type='radio' name='gender' value='male'/></label>
             <label>Female: <input ref="female" type='radio' name='gender' value='female'/></label>
