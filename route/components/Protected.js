@@ -7,7 +7,8 @@ import {Route, Redirect} from 'react-router-dom';
 // render函数 当路由匹配的时候，渲染的是render方法的返回值
 export default function ({component: _comp, ...rest}) {
   return <Route {...rest} render={
-    props => localStorage.getItem('login') ? <_comp/> : <Redirect to="/login" state={{from: props.location.pathname}}/>
+    props => localStorage.getItem('login') ? <_comp/> :
+      <Redirect to={{pathname: '/login', state: {from: props.location.pathname}}}/>
   }/>
   return null;
 }
