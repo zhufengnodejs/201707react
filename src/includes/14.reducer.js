@@ -1,5 +1,6 @@
 import {createStore} from 'redux';
-let initState = [];
+let initState;
+initState = [];
 let reducer = (state=initState,action)=>{
   switch (action.type){
     case 'ADD_USER':
