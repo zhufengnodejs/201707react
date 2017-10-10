@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Link, Route} from 'react-router-dom';
 import UserList from "./UserList";
 import UserAdd from "./UserAdd";
+import UserDetail from "./UserDetail";
 export default class User extends Component {
   render() {
     return (
@@ -15,6 +16,7 @@ export default class User extends Component {
         <div className="col-sm-9">
           <Route path="/user/list" component={UserList}/>
           <Route path="/user/add" component={UserAdd}/>
+          <Route path="/user/detail" component={UserDetail}/>
         </div>
       </div>
     )

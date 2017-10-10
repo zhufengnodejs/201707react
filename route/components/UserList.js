@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 export default class UserList extends Component {
   constructor() {
     super();
@@ -17,9 +18,14 @@ export default class UserList extends Component {
           用户名
         </li>
         {
-          this.state.users.map((item,index)=>(
-            <li className="list-group-item">
-              {item.username}
+          this.state.users.map((user,index)=>(
+            <li key={index} className="list-group-item">
+              <Link to={{
+                pathname: '/user/detail',
+                search: '?sort=age',
+                hash: '#somehash',
+                state: {user}
+              }}>{user.username}</Link>
             </li>
           ))
         }
