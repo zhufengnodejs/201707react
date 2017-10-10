@@ -20,12 +20,11 @@ export default class UserList extends Component {
         {
           this.state.users.map((user,index)=>(
             <li key={index} className="list-group-item">
-              <Link to={{
+             {/* <Link to={{
                 pathname: '/user/detail',
-                search: '?sort=age',
-                hash: '#somehash',
                 state: {user}
-              }}>{user.username}</Link>
+              }}>{user.username}</Link>*/}
+              <Link to={`/user/detail/${user.id}`}>{user.username}</Link>
             </li>
           ))
         }

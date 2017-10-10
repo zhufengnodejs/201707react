@@ -1,7 +1,10 @@
 import React, {Component} from 'react';
 export default class UserDetail extends Component {
   render() {
-    let user = this.props.location.state.user;
+    //let user = this.props.location.state.user;
+    let users = JSON.parse(localStorage.getItem('USERS')||"[]");
+    let id = this.props.match.params.id;
+    let user = users.find(item=>item.id == id);
     return (
       <table className="table table-bordered">
         <thead>

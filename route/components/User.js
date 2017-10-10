@@ -16,7 +16,7 @@ export default class User extends Component {
         <div className="col-sm-9">
           <Route path="/user/list" component={UserList}/>
           <Route path="/user/add" component={UserAdd}/>
-          <Route path="/user/detail" component={UserDetail}/>
+          <Route path="/user/detail/:id" component={UserDetail}/>
         </div>
       </div>
     )
