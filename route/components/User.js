@@ -7,7 +7,7 @@ export default class User extends Component {
     return (
       <div className="row">
         <div className="col-sm-3">
-          <ul className="nav nav-stacked">
+          <ul className="nav nav-stacked" style={{textAlign:'center'}}>
             <li><Link to="/user/list">用户列表</Link></li>
             <li><Link to="/user/add">添加用户</Link></li>
           </ul>
