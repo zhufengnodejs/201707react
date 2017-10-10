@@ -1,9 +1,10 @@
 import React,{Component} from 'react';
+import PropTypes from 'prop-types';
 export default class Content extends Component{
   //我要接收哪些上下文件对象属性
   static contextTypes = {
-    color:React.PropTypes.string,
-    changeColor:React.PropTypes.func
+    color:PropTypes.string,
+    changeColor:PropTypes.func
   }
   render(){
     return (
