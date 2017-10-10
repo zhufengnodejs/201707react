@@ -8,9 +8,16 @@ export default class UserAdd extends Component {
     let users = JSON.parse(localStorage.getItem('USERS')||"[]");
     users.push(user);
     localStorage.setItem('USERS',JSON.stringify(users));
+    this.props.history.push('/user/list');
   }
 
   render() {
+    /**
+     * history 用来前后跳转页面的
+     * location.pathname存放当前路径
+     *          .state
+     * match 代表匹配的结果
+     */
     return (
       <form onSubmit={this.handleSubmit}>
         <div className="form-group">
